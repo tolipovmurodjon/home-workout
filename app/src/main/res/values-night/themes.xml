@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme._7MinuteWorkout" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Customize your dark theme here. -->
+         <item name="colorPrimary">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+
+    </style>
+
+    <style name="Theme.SplashScreen" parent="Base.Theme._7MinuteWorkout">
+        <item name="colorPrimary">@color/white</item>
+
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+
+        <item name="android:colorControlNormal">@color/black</item>
+        <item name="android:textStyle">bold</item>
+
+
+
+    </style>
+
+
+
+
+</resources>
