@@ -32,7 +32,8 @@ With Home Workout, you can perform top-perfect exercises, track your BMI in both
 ## GIFs 🎥
 | Splash Screen 🌟 | Exercise Screen 🏋️‍♂️ | BMI Screen 📊 | History Screen 📜 |
 |---|---|---|---|
-| ![Splash Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/2f45c339-cbe4-46d5-88d8-6eefe69a3a0c) | ![Exercise Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/edd56594-0836-4ee3-bcd3-ead5e2e17464) | ![BMI Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/9ca03557-6286-424e-9850-7a51ea5cb3e5) | ![History Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/09490d87-aae4-4bd4-99fb-c8b0b04116ee) |
+| ![Splash Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/7d73082d-0b0c-4fed-9bee-bca1b8f507d4) | ![Exercise Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/c4c3fcd5-7c24-40c0-a06c-2dcf5997dd64) | ![BMI Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/7804b5ea-7d6e-41a9-a7f9-5de12996f23e) | ![History Screen](https://github.com/tolipovmurodjon/home-workout/assets/173606323/53d76b2f-59a4-4a1f-a91e-994056d279b6) |
+
 
 ## Notable Design Decisions 🎨
 
