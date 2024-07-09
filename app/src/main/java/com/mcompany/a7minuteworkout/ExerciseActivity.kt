@@ -72,7 +72,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun customDialog(){
 
-        pauseExercise()
+        pauseTimer()
 
         val customDialog = Dialog(this, R.style.CustomDialogTheme)
         val dialogBinding = CustomDialogBinding.inflate(layoutInflater)
@@ -86,7 +86,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         dialogBinding.tvHard.setOnClickListener {
-            resumeExercise()
+            resetExercise()
 
             customDialog.dismiss()
         }
@@ -108,6 +108,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
     }
+
+
 
     private fun setupExerciseStatusAdapter(){
 
@@ -303,7 +305,17 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     }
 
-    private fun pauseExercise(){
+    private fun resetExercise() {
+
+        currentExercisePosition = -1
+        exerciseList?.forEach { it.setCompleted(false); it.setSelected(false) }
+        setupExerciseStatusAdapter()
+        setRestView()
+
+
+    }
+
+    private fun pauseTimer(){
 
         if (restTimer != null){
             restTimer?.cancel()
@@ -311,24 +323,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         }
 
-        if (exerciseProgress != null){
+        if (exerciseTimer != null){
             exerciseTimer?.cancel()
             exerciseProgress = 0
-
         }
-
-        if (tts != null){
-            tts?.stop()
-            tts?.shutdown()
-        }
-
-        if (player != null){
-            player!!.stop()
-        }
-    }
-
-    private fun resumeExercise(){
-        setRestProgressBar()
 
     }
 

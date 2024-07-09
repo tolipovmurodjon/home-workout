@@ -20,10 +20,9 @@ With Home Workout, you can perform top-perfect exercises, track your BMI in both
 - RecyclerView
 - MediaPlayer
 - TextToSpeech
-- Room Database (DAO, Entity)
-- MVVM Architecture
-- Permission Handling
-- Location Services
+- Dialog
+- CountDownTimer
+- Room Database
 
 ## Screenshots 📸
 | Main Screen 🏋️‍♂️ | Exercise Screen 🏋️‍♂️ | BMI Screen 📊 | History Screen 📜 |
@@ -40,7 +39,7 @@ With Home Workout, you can perform top-perfect exercises, track your BMI in both
 - Designed for intuitive use with a focus on user experience and motivation during workouts.
 - Realistic exercise simulations and interactive features for an engaging user experience.
 - Efficient data management using Room database for storing workout history and user progress.
-- MVVM architecture ensures a maintainable and scalable codebase.
+- Clean architecture ensures a maintainable and scalable codebase.
 
 ## Getting Started 🚀
 
