@@ -5,14 +5,12 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mcompany.a7minuteworkout.databinding.ActivityExerciseBinding
 import com.mcompany.a7minuteworkout.databinding.CustomDialogBinding
@@ -23,11 +21,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var binding : ActivityExerciseBinding? = null
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
-    private var restTimerDuration : Long = 10
+    private var restTimerDuration : Long = 5
 
     private var exerciseTimer: CountDownTimer? = null
     private var exerciseProgress = 0
-    private var exerciseTimerDuration : Long= 30
+    private var exerciseTimerDuration : Long= 10
 
     private var exerciseList : ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
@@ -72,13 +70,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     }
 
-
-
-
-
     private fun customDialog(){
 
-        val customDialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen)
+        pauseExercise()
+
+        val customDialog = Dialog(this, R.style.CustomDialogTheme)
         val dialogBinding = CustomDialogBinding.inflate(layoutInflater)
 
         customDialog.setContentView(dialogBinding.root)
@@ -90,6 +86,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         dialogBinding.tvHard.setOnClickListener {
+            resumeExercise()
+
             customDialog.dismiss()
         }
 
@@ -124,11 +122,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         try {
             //val soundURI = Uri.parse("android.resource://com.mcompany.a7minuteworkout/"+R.raw.start)
-            
+
             player = MediaPlayer.create(applicationContext, R.raw.start)
             player?.isLooping = false
             player?.start()
-            
+
         } catch (e: Exception){
             e.printStackTrace()
         }
@@ -263,31 +261,31 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 exerciseList!![currentExercisePosition].setCompleted(true)
                 exerciseAdapter?.notifyDataSetChanged()
 
-               if (currentExercisePosition < exerciseList?.size!!-1){
-                   binding?.textViewTitle?.text = "REST"
-                   binding?.textViewTitle?.setTextColor(Color.WHITE)
-                   binding?.constraintLayout2?.visibility = View.VISIBLE
-                   binding?.textViewNextWorkout?.visibility = View.VISIBLE
+                if (currentExercisePosition < exerciseList?.size!!-1){
+                    binding?.textViewTitle?.text = "REST"
+                    binding?.textViewTitle?.setTextColor(Color.WHITE)
+                    binding?.constraintLayout2?.visibility = View.VISIBLE
+                    binding?.textViewNextWorkout?.visibility = View.VISIBLE
 
-                   binding?.imageViewExercise?.setImageResource(exerciseList!![currentExercisePosition +1].getImage())
-
-
-                   binding?.textViewNextWorkout?.text = exerciseList!![currentExercisePosition + 1].getName()
+                    binding?.imageViewExercise?.setImageResource(exerciseList!![currentExercisePosition +1].getImage())
 
 
-                   setRestView()
+                    binding?.textViewNextWorkout?.text = exerciseList!![currentExercisePosition + 1].getName()
 
 
-               } else{
-                   speakOut("You have finished the exercise!")
-                   finish()
-                   val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
-                   startActivity(intent)
+                    setRestView()
+
+
+                } else{
+                    speakOut("You have finished the exercise!")
+                    finish()
+                    val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                    startActivity(intent)
 
 
 
 
-               }
+                }
             }
 
 
@@ -302,6 +300,35 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
 
+
+    }
+
+    private fun pauseExercise(){
+
+        if (restTimer != null){
+            restTimer?.cancel()
+            restProgress = 0
+
+        }
+
+        if (exerciseProgress != null){
+            exerciseTimer?.cancel()
+            exerciseProgress = 0
+
+        }
+
+        if (tts != null){
+            tts?.stop()
+            tts?.shutdown()
+        }
+
+        if (player != null){
+            player!!.stop()
+        }
+    }
+
+    private fun resumeExercise(){
+        setRestProgressBar()
 
     }
 

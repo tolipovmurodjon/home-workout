@@ -26,6 +26,12 @@
         <item name="android:statusBarColor">@color/white</item>
     </style>
 
+    <style name="CustomDialogTheme" parent="Base.Theme._7MinuteWorkout">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 
 
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
