@@ -4,7 +4,7 @@
 
 Welcome to Home Workout, your ultimate fitness companion on Android! 📱 Achieve your fitness goals with a comprehensive set of exercises designed to improve your health and well-being. Whether you're a beginner or a fitness enthusiast, Home Workout provides tailored routines and features to enhance your workout experience.
 
-With Home Workout, you can perform top-perfect exercises, track your BMI in both metric and imperial units, maintain exercise history, and much more. 🌍⛅️
+With Home Workout, you can perform suitable exercises, track your BMI in both metric and imperial units, maintain exercise history, and much more. 🌍⛅️
 
 ## Features ✨
 
