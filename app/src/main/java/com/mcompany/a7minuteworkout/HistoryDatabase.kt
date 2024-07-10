@@ -34,19 +34,7 @@ abstract class HistoryDatabase :RoomDatabase() {
                 }
 
                 return instance
-
-
             }
-
-
-
         }
-
-
-
     }
-
-
-
-
 }

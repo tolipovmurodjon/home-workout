@@ -10,14 +10,7 @@
             android:useLevel="true">
 
             <solid android:color="@color/dark_blue"/>
-
-
-
-
         </shape>
-
-
-
     </item>
 
 </layer-list>
